@@ -15,7 +15,7 @@ allComputeInstanceTemplates = filter tfplan.resource_changes as _, resource_chan
 			resource_changes.change.actions is ["update"])
 }
 
-print("CIS 4.2: Ensure 'Block Project-wide SSH keys' are enabled for VM instances")
+print("Ensure 'Block Project-wide SSH keys' are enabled for VM instances")
 
 deny_undefined_compute_instance_metadata = rule {
 	all allComputeInstances as _, instances {

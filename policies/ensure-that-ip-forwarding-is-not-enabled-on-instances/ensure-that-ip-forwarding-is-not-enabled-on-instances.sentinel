@@ -14,7 +14,7 @@ allComputeInstanceTemplates = filter tfplan.resource_changes as _, resource_chan
 			resource_changes.change.actions is ["update"])
 }
 
-print("CIS 4.5: Ensure that IP forwarding is not enabled on Instances")
+print("Ensure that IP forwarding is not enabled on Instances")
 
 can_ip_forward_is_disabled_in_compute_instance = rule {
 	all allComputeInstances as _, instance {

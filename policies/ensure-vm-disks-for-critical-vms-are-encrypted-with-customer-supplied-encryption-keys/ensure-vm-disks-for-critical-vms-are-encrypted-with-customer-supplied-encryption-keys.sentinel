@@ -39,7 +39,7 @@ getDiskEncryptionStatus = func(property) {
 	}
 }
 
-print("CIS 4.6: Ensure VM disks for critical VMs are encrypted with Customer-Supplied Encryption Keys (CSEK)")
+print("Ensure VM disks for critical VMs are encrypted with Customer-Supplied Encryption Keys (CSEK)")
 
 disk_encryption_is_enabled_in_compute_disks = rule {
 	all allComputeDisks as _, disk {

@@ -15,7 +15,7 @@ allComputeInstanceTemplates = filter tfplan.resource_changes as _, resource_chan
 			resource_changes.change.actions is ["update"])
 }
 
-print("CIS 4.4: Ensure 'Enable connecting to serial ports' is not enabled for VM Instance")
+print("Ensure 'Enable connecting to serial ports' is not enabled for VM Instance")
 
 deny_undefined_compute_instance_metadata = rule {
 	all allComputeInstances as _, instances {
