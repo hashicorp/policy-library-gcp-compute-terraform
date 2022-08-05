@@ -15,8 +15,6 @@ allComputeInstanceTemplates = filter tfplan.resource_changes as _, resource_chan
 			resource_changes.change.actions is ["update"])
 }
 
-print("Ensure 'Block Project-wide SSH keys' are enabled for VM instances")
-
 deny_undefined_compute_instance_metadata = rule {
 	all allComputeInstances as _, instances {
 		instances.change.after.metadata is not null
@@ -53,6 +51,16 @@ block_project_ssh_keys_is_enabled_in_compute_instance_template_metadata = rule w
 	}
 }
 
+// ---------------------------------------------------------
+// Category:    Infrastructure (IaaS)
+// Provider:    hashicorp/google
+// Resource:    google_compute_instance
+//              google_compute_instance_template
+// Check:       metadata["block-project-ssh-keys"] is "true"
+// ---------------------------------------------------------
+// Ensure 'Block Project-wide SSH keys' is enabled for VM
+// instances.
+// ---------------------------------------------------------
 main = rule {
 	deny_undefined_compute_instance_metadata and
 	deny_undefined_compute_instance_block_project_ssh_keys and
