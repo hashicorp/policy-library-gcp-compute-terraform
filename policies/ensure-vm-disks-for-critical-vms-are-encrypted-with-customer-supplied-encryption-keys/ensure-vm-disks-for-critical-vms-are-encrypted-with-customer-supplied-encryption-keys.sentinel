@@ -39,8 +39,6 @@ getDiskEncryptionStatus = func(property) {
 	}
 }
 
-print("Ensure VM disks for critical VMs are encrypted with Customer-Supplied Encryption Keys (CSEK)")
-
 disk_encryption_is_enabled_in_compute_disks = rule {
 	all allComputeDisks as _, disk {
 		length(disk.change.after.disk_encryption_key) != 0
@@ -71,6 +69,17 @@ disk_encryption_is_enabled_in_compute_instance_template_disk = rule {
 	}
 }
 
+// -------------------------------------------------------------
+// Category:    Infrastructure (IaaS)
+// Provider:    hashicorp/google
+// Resource:    google_compute_instance
+//              google_compute_instance_template
+//              google_compute_disk
+// Check:       disk_encryption_key contains "kms_key_self_link"
+// -------------------------------------------------------------
+// Ensure VM disks for critical VMs are encrypted with Customer-
+// Supplied Encryption Keys (CSEK).
+// -------------------------------------------------------------
 main = rule {
 	disk_encryption_is_enabled_in_compute_disks and
 	disk_encryption_is_enabled_in_compute_instance_boot_disk and

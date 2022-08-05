@@ -14,8 +14,6 @@ allComputeInstanceTemplates = filter tfplan.resource_changes as _, resource_chan
 			resource_changes.change.actions is ["update"])
 }
 
-print("Ensure that IP forwarding is not enabled on Instances")
-
 can_ip_forward_is_disabled_in_compute_instance = rule {
 	all allComputeInstances as _, instance {
 		instance.change.after.can_ip_forward is false
@@ -28,6 +26,15 @@ can_ip_forward_is_disabled_in_compute_instance_template = rule {
 	}
 }
 
+// ---------------------------------------------------------
+// Category:    Infrastructure (IaaS)
+// Provider:    hashicorp/google
+// Resource:    google_compute_instance
+//              google_compute_instance_template
+// Check:       can_ip_forward is false
+// ---------------------------------------------------------
+// Ensure that IP forwarding is not enabled on Instance.
+// ---------------------------------------------------------
 main = rule {
 	can_ip_forward_is_disabled_in_compute_instance and
 	can_ip_forward_is_disabled_in_compute_instance_template
