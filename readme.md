@@ -1,5 +1,4 @@
 # GCP Compute Sentinel Policies for Terraform
-# Azure Compute Sentinel Policies for Terraform
 This library, provides prescriptive Terraform policies that can be used to establish secure Terraform configuration for Google Cloud Platform. The policies that are contained in this library are based on the [CIS Google Cloud Computing Platform Benchmarks](https://www.cisecurity.org/benchmark/google_cloud_computing_platform). Terraform Cloud/Enterprise users can use the policies in this library to establish a foundational level of security for the services that they are adopting in Google Cloud Platform.
 
 > **NOTE:**
