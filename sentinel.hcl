@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 policy "ensure-vm-disks-for-critical-vms-are-encrypted-with-customer-supplied-encryption-keys" {
   source = "./policies/ensure-vm-disks-for-critical-vms-are-encrypted-with-customer-supplied-encryption-keys/ensure-vm-disks-for-critical-vms-are-encrypted-with-customer-supplied-encryption-keys.sentinel"
 }
