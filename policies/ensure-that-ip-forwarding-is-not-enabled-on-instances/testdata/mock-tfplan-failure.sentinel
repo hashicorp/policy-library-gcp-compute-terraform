@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 resource_changes = {
 	"google_compute_instance.this": {
 		"address": "google_compute_instance.this",
