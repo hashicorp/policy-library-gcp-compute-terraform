@@ -1,3 +1,5 @@
+# Copyright IBM Corp. 2022, 2026
+
 resource_changes = {
 	"google_compute_instance.this": {
 		"address": "google_compute_instance.this",
